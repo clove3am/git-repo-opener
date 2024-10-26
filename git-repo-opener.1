@@ -1,0 +1,57 @@
+.TH GIT-REPO-OPENER 1 "October 2024" "Version 1.0" "User Commands"
+.SH NAME
+git-repo-opener \- open the remote URL of a Git repository in a web browser
+.SH SYNOPSIS
+.B git-repo-opener
+[\fB\-h\fR|\fB\-\-help\fR]
+[\fB\-d\fR \fIDIRECTORY\fR|\fB\-\-directory\fR \fIDIRECTORY\fR]
+[\fB\-p\fR|\fB\-\-print\fR]
+.SH DESCRIPTION
+.B git-repo-opener
+is a Bash script that opens the remote URL of a Git repository in your default web browser. It can be run from any directory within a Git repository or can be pointed to a specific Git repository directory.
+.PP
+The script supports both HTTPS and SSH remote URLs and will convert SSH URLs to HTTPS format before opening.
+.SH OPTIONS
+.TP
+.BR \-h ", " \-\-help
+Display help message and exit.
+.TP
+.BR \-d ", " \-\-directory =\fIDIRECTORY\fR
+Specify the Git repository directory. If not provided, the current directory is used.
+.TP
+.BR \-p ", " \-\-print
+Only print the remote URL, don't open it in the browser.
+.SH EXIT STATUS
+.TP
+.B 0
+Success
+.TP
+.B 1
+Various error conditions (e.g., not a Git repository, no remote URL found)
+.SH EXAMPLES
+.TP
+Open the remote URL of the current directory's Git repository:
+.B git-repo-opener
+.TP
+Open the remote URL of a specific Git repository:
+.B git-repo-opener -d /path/to/your/repo
+.TP
+Only print the remote URL without opening it:
+.B git-repo-opener -p
+.TP
+Print the remote URL of a specific repository:
+.B git-repo-opener -d /path/to/your/repo -p
+.SH ENVIRONMENT
+.TP
+.B BROWSER
+If set, this environment variable will be used to determine the web browser to open the URL with. If not set, the script will use xdg-open on Linux.
+.SH BUGS
+No known bugs.
+.SH AUTHOR
+Chris Love <https://github.com/clove3am>
+.SH COPYRIGHT
+Copyright © 2024 Chris Love. License MIT.
+.SH SEE ALSO
+.BR git (1),
+.BR xdg-open (1),
+.BR open (1)
