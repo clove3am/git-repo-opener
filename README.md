@@ -22,22 +22,23 @@ This Bash script allows you to quickly open the remote URL of a Git repository i
 - Bash:
 
 ```bash
-sudo curl -fsSL /usr/local/bin/git-open https://raw.githubusercontent.com/clove3am/git-repo-opener/main/git-open.sh
-sudo chown +x /usr/local/bin/git-open
+sudo curl https://raw.githubusercontent.com/Souvlaki42/git-repo-opener/master/git-open.sh -o /usr/local/bin/git-open
+sudo chmod +x /usr/local/bin/git-open
 git config --global alias.open "!git-open"
 ```
 
 - Powershell:
 
 ```powershell
-sudo curl -fsSL ~/git-open.ps1 https://raw.githubusercontent.com/clove3am/git-repo-opener/main/git-open.ps1
-git config --global alias.open "!~/git-open.ps1"
+curl https://raw.githubusercontent.com/Souvlaki42/git-repo-opener/master/git-open.ps1 -o $HOME/git-open.ps1
+git config --global alias.open "!powershell -c ~/git-open.ps1"
+Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy  RemoteSigned
 ```
 
 - Nushell:
 
 ```nushell
-sudo curl -fsSL ~/git-open.nu https://raw.githubusercontent.com/clove3am/git-repo-opener/main/git-open.nu
+curl https://raw.githubusercontent.com/Souvlaki42/git-repo-opener/master/git-open.nu -o ~/git-open.nu
 git config --global alias.open "!nu ~/git-open.nu"
 ```
 
