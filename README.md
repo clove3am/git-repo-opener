@@ -1,6 +1,11 @@
 # Git Repository URL Opener
 
-This Bash script allows you to quickly open the remote URL of a Git repository in your default web browser. It's useful for developers who frequently need to access the web interface of their Git repositories (e.g., GitHub, GitLab, Bitbucket).
+> [!NOTE]  
+> This branch is now abandoned. Use the [new version](https://github.com/Souvlaki42/git-repo-opener/tree/main) instead if you like.
+
+These scripts allow you to quickly open the remote URL of a Git repository in your default web browser. It's useful for developers who frequently need to access the web interface of their Git repositories (e.g., GitHub, GitLab, Bitbucket).
+
+Inspired by [clove3am](https://github.com/clove3am/git-repo-opener).
 
 > Built partly with the help of [T3 Chat](https://t3.chat) and [Duck.ai](https://duck.ai)
 
@@ -22,15 +27,15 @@ This Bash script allows you to quickly open the remote URL of a Git repository i
 - Bash:
 
 ```bash
-sudo curl https://raw.githubusercontent.com/Souvlaki42/git-repo-opener/master/git-open.sh -o /usr/local/bin/git-open
-sudo chmod +x /usr/local/bin/git-open
-git config --global alias.open "!git-open"
+curl https://raw.githubusercontent.com/Souvlaki42/git-repo-opener/shell/git-open.sh -o ~/git-open.sh
+chmod +x ~/git-open.sh
+git config --global alias.open "!sh ~/git-open.sh"
 ```
 
 - Powershell:
 
 ```powershell
-curl https://raw.githubusercontent.com/Souvlaki42/git-repo-opener/master/git-open.ps1 -o $HOME/git-open.ps1
+curl https://raw.githubusercontent.com/Souvlaki42/git-repo-opener/shell/git-open.ps1 -o $HOME/git-open.ps1
 git config --global alias.open "!powershell -c ~/git-open.ps1"
 Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy  RemoteSigned
 ```
@@ -38,8 +43,18 @@ Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy  RemoteSigned
 - Nushell:
 
 ```nushell
-curl https://raw.githubusercontent.com/Souvlaki42/git-repo-opener/master/git-open.nu -o ~/git-open.nu
+curl https://raw.githubusercontent.com/Souvlaki42/git-repo-opener/shell/git-open.nu -o ~/git-open.nu
 git config --global alias.open "!nu ~/git-open.nu"
+```
+
+## Uninstallation
+
+```nushell
+rm -rf ~/git-open.sh # For bash
+Remove-Item -Recurse -Force ~/git-open.ps1 # For powershell
+rm -rf ~/git-open.nu # for Nushell
+
+git config --global --unset alias.open # For all of them
 ```
 
 ## Usage
